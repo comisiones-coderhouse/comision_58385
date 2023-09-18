@@ -1,0 +1,162 @@
+CLASE 1 :
+
+Escribir react estandar (vanilla) : 
+
+    React.createElement("p", null, "Hello World!")
+
+es similar a 
+
+    document.createElement("p").appendChild(document.createTextNode("Hello World!"))
+
+
+
+
+
+JSX : HTML + JS ( la idea que queremos )
+
+    const parrafo = <p>Hola Mundo</p>
+
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+
+CLASE 2 : 
+
+
+
+
+COMPILADORES (Bundlers + Transpiladores)
+
+Bundlers (Empaquetadores) :  Webpack, Parcel, Rollup, Browserify
+
+    - Empaquetan los archivos y sus dependencias en un solo archivo final (bundle.js)
+
+
+Transpiladores (Transformadores) :  Babel
+
+    - Transforman el código de un lenguaje a otro (JSX -> JS)
+
+
+Build : Es el proceso final de transformar/empaquetar todo para produccion (minificar, ofuscar, etc)
+
+
+ 
+NodeJS + NPM (Node Package Manager) : Entorno de desarrollo para JS 
+
+
+
+create-react-app y vite.js : Herramientas para crear proyectos de React
+
+Next.js
+
+
+Instalacion de App de React con vite : 
+
+ 1) Abrir una linea de comandos (cmd, etc)
+ 2) Ejecutar : npm create vite@latest
+ 3) 
+
+1) npm create vite@latest *
+2) cd <nombre del proyecto>
+3) npm install
+4) npm run dev
+
+
+
+*si falla :
+    git clone https://github.com/comisiones-coderhouse/comision_58385
+
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+CLASE 3 
+
+JSX 
+
+CRA :
+    
+        - index.js
+        - package.json
+        - node_modules
+        - .gitignore
+        - README.md
+        - public
+            - index.html
+            - favicon.ico
+        - src
+           - App.css
+           - App.js
+           - App.test.js
+           - index.css
+           - index.js
+
+
+VITE : 
+    - package.json
+    - node_modules
+    - .gitignore
+    - README.md
+    - vite.config.js
+    - .eslintrc.cjs
+    - index.html
+    - public
+        - vite.svg
+    - src   
+        - App.css
+        - App.js
+        - index.css
+        - main.js
+        - main.jsx
+        - logo.svg
+        - index.html
+
+
+
+"lo que no vite de react"
+
+
+
+
+//archivo1.js
+export let a = 1   (con llaves se importa)
+export default b = 2 (sin llaves se importa)
+
+
+
+
+//archivo2.js
+import { a } from "./archivo1"
+import b from "./archivo1"
+
+console.log(a)
+
+
+class App {}
+
+function App(){}
+
+const App = () => {}
+
+
+
+
+CONVERSION DE JSX A JS :
+
+      const header = document.createElement('header')
+      const h1 = document.createElement('h1')
+      header.id = 'header'
+      h1.textContent = 'Titulo'
+      header.appendChild(h1)
+      document.body.appendChild(header)
+
+      header.addEventListener('click', handleClick)
+      header.addEventListener('click', ()=>{})
+
+
+=======
+
+      <header id="header" className="header">
+        <h1>Titulo</h1>
+      </header>
