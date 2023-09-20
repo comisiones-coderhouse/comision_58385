@@ -160,3 +160,66 @@ CONVERSION DE JSX A JS :
       <header id="header" className="header">
         <h1>Titulo</h1>
       </header>
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+CLASE 4
+
+
+lo que nos quedo de la clase pasada : migracion de jsx a nuevos componentes
+
+css : instalacion de tailwind y sass (extra OPCIONAL)
+
+props y estados
+
+
+ src/
+    |_ui
+        |_layout/
+            |_Header.jsx
+            |_Footer.jsx
+            |_Main.jsx
+            |_App.jsx
+        |_components/
+        |_pages/
+    |_api/
+        |_utils.js
+
+Header/
+    _ Header.jsx
+    _ Header.css
+    _ Header.test.js
+
+
+import Button from "bootstrap/Button"
+
+<button className="btn p-4">
+
+<Button/>
+
+
+https://tailwindcss.com/docs/guides/vite
+https://ant.design/docs/react/introduce
+https://mui.com/material-ui/
+https://getbootstrap.com/
+https://milligram.io/
+https://chakra-ui.com/
+
+
+PROPS : 
+
+//definicion de funcion
+function Header(props){}
+
+
+//ejecucion de funcion
+Header(1,"horacio",true)
+
+
+<Header numero="" nombre="" buleano=""  />

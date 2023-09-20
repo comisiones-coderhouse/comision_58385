@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.header {
+    @apply flex justify-between p-4 bg-blue-400 shadow-md;
+}
+
+.navbar {
+    @apply flex gap-4
+}
+
+.main {
+    @apply grow p-4
+}
+
+.footer {
+    @apply flex justify-center items-center p-4 bg-blue-400 text-sm;
+}
+
+.footer-dark {
+    @apply bg-gray-800;
+}
