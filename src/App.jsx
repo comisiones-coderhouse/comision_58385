@@ -4,10 +4,11 @@ import Main from "./components/Main"
 
 const App = () => {
 
+
   return (
     <>
 
-      <Header nombre="Horacio" edad={34} />
+      <Header nombre="Horacio" edad={34}/>
 
       <Main juegos={["Valorant","Mario"]} />
 

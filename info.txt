@@ -223,3 +223,112 @@ Header(1,"horacio",true)
 
 
 <Header numero="" nombre="" buleano=""  />
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+AFTER 1 :
+
+
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+CLASE 5 
+
+HOOKS
+
+useState : sirve para tener variables reactivas. Por lo general lo voy a usar para hacer moficicaciones en el DOM del mismo componente donde esta el estado
+
+useRef : sirve para formularios. Tenicamente sirve para guardar referencias del DOM en React
+
+useEffect : sirve para cubrir codigo que queremos ejecutar con una determinada frecuencia
+
+
+useContext : 
+
+TODOS los hooks son funciones, y todos los hooks tienen que estar dentro de un componente, pero fuera de un condicional, bucle, etc
+
+
+
+import { useState } from "react"
+
+
+/* JS vanilla */
+
+/* 
+
+let contador = 0
+
+const handleClick = () => {
+    contador = contador + 1
+    const p = document.querySelector("p")
+    p.textContent = `Contador Actual : ${contador}`
+}
+
+const btn = document.querySelector(".btn")
+btn.addEventListener("click", handleClick)
+btn.addEventListener("click", ()=>{}) */
+
+/* End JS vanilla */
+
+
+
+
+function Contador() {
+
+    //Sintaxis : 
+    //const [variable,setVariable] = useState(valorInicial)
+    const [contador,setContador] = useState(0)
+    /* 
+    const [dark,setDark] = useState(true)
+    const [usuarios,setUsuarios] = useState([])
+    const [currentUser,setCurrentUser] = useState({}) 
+    const [nombre,setNombre] = useState("")
+    const [edad,setEdad] = useState(0)
+    */
+
+    const handleClick = () => {
+        //contador = contador + 1
+        //contador++
+        //contador+=1
+
+        //Sintaxis : 
+        //setFn(nuevoValorDelEstado)
+        //setFn((valorActualDelEstado)=>{ return nuevoValorDelEstado})
+        setContador(contador + 1)
+
+        console.log("Sumar")
+        console.log(contador)
+    }
+
+    return (
+        <div>
+            <p>Contador Actual : {contador}</p>
+            <button onClick={handleClick} className="btn">sumar</button>
+            {/*  <button onClick={()=>{ console.log("click") }} className="btn">sumar</button> */}
+        </div>
+    )
+}
+
+export default Contador
+
+
+
+
+Patrones de diseño :  
+
+Ej
+    - MVC
+    - MVVM
+    - Flux
+    - Redux
+
+
+Patron Container : 
+Patron Props Children : 
+Patron Provider : 
