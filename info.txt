@@ -332,3 +332,80 @@ Ej
 Patron Container : 
 Patron Props Children : 
 Patron Provider : 
+
+
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+
+CLASE 6
+
+Reader 
+XHR
+FETCH 
+
+
+
+fetch("http://miserver.com")
+.then(()=>{
+    return caches.open()
+})
+.then(()=>{
+    
+})
+.catch(()=>{
+    console.log("error")
+})
+.finally(()=>{})
+
+
+
+//Mock(imitacion)
+const promesa = new Promise((res,rej)=>{
+    //aca esta la logica
+    //res([1,2,3,4,5])
+    rej("Hubo un error")
+})
+
+console.log("Hola")
+
+promesa.then((res)=>{
+    console.log(res)
+    console.log("Then")
+})
+
+promesa.catch((error)=>{
+    console.log(error)
+    console.log("Catch")
+})
+
+promesa.finally(()=>{
+    console.log("Finally")
+})
+
+console.log(promesa)
+
+//pipeline
+
+//Triggers - Timers - Requests
+
+//Triggers
+/* 
+document.addEventListener("click",()=>{
+    console.log("Click")
+}) 
+*/
+
+//Request
+/* 
+
+fetch()
+.then(()=>{})
+.catch(()=>{})
+
+*/
+
+//Timers
+//setInterval(()=>{},1000)
+//setTimeout(()=>{},1000)

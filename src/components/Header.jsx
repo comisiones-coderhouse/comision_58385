@@ -1,6 +1,5 @@
 const Header = (props) => {
 
-    //Vista
     return (
         <header className="header">
             <h1>{props.nombre}</h1>

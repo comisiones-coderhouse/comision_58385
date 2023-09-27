@@ -3,12 +3,11 @@ import Presentacional from "./Presentacional"
 
 function Container() {
 
+    //Estados
     const [state, setState] = useState([])
 
-    //fetch()
-
     return (
-        <Presentacional />
+        <Presentacional state={state} />
     )
 }
 
