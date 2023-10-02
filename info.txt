@@ -409,3 +409,108 @@ fetch()
 //Timers
 //setInterval(()=>{},1000)
 //setTimeout(()=>{},1000)
+
+
+//APIs
+//APIs WEB
+//APIs REST
+//APIs GraphQL
+//APIs SOAP
+
+//HTTP
+//Request : url/ip - metodo (GET,POST,PUT,PATCH,DELETE,etc)
+
+/* fetch("https://jsonplaceholder.typicode.com/")
+
+fetch("https://jsonplaceholder.typicode.com/users",{
+  method : "POST"
+})
+
+
+ */
+
+/* 
+
+
+baseUrl : https://myapi.com/api/v1
+
+
+Endpoints : 
+
+  /users  : POST (params : {limit number})
+  /users/:id : GET
+  /users : POST  (params : {name string,lastname string,email string,phone number})
+
+*/
+/* 
+fetch("https://myapi.com/api/v1/users")
+fetch("https://myapi.com/api/v1/users",{
+  method : "POST",
+  body : {limit : 10}
+})
+
+ */
+
+
+
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+CLASE 7 
+
+const pedido = fetch('https://fakestoreapi.com/productss')
+
+pedido.then((respuesta)=>{
+  console.log(respuesta)
+  if(respuesta.status < 400){
+    console.log("termino el pedido bien")
+  } else {
+    console.log("termino el pedido mal")
+  }
+})
+
+pedido.catch((error)=>{
+  console.log("termino el pedido mal")
+  console.log(error)
+})
+
+
+
+HTTP
+
+Request 
+    url google.com
+    method POST
+    headers
+        Content-Type : application/json
+    body
+        { nombre : "hORACIO"}
+
+
+Response
+    status code
+    status message
+    headers 
+        Access-Control-Allow-Origin
+        Content-Type
+        Content-Length
+        Cache-Control 
+        Accept
+        Accept-Encoding
+    body
+
+
+
+    TEMAS DE AFTER
+
+    modo esticto y abortcontroller
+    useEffect
+
+
+
+    useState(valor?) : [valor?,()=>{}]
+
+    useRef(null) : {current:null}
+
+    useEffect(function,array?) : void
