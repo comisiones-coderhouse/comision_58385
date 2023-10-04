@@ -11,22 +11,21 @@ const Main = () => {
         setToggle(!toggle)
     }
 
-    if(toggle){
-        return (
-            <main className="main">
-                <button onClick={handleToggle}>ir a  contador</button>
-                <Container />
-            </main>
-        )
-    }else {
-        return (
-            <main className="main">
-                <button onClick={handleToggle}>ir a productos</button>
-                <Contador />
-                <Formulario />
-            </main>
-        )
-    }
+    return (
+        <main className="main">
+            <button onClick={handleToggle}>{toggle ? "ir a  contador" : "ir a productos"}</button>
+            {toggle
+                ? <Container />
+                : (
+                    <>
+                        <Contador />
+                        <Formulario />
+                    </>
+                )
+            }
+        </main>
+    )
+
 }
 
 export default Main

@@ -6,7 +6,11 @@ const App = () => {
 
   return (
     <>
-      <Header nombre="Horacio"/>
+      <Header nombre="Horacio">
+        <h1>Titulo</h1>
+        <h2>Subtitulo</h2>
+        <p>Lorem Ipsum</p>
+      </Header>
       <Main />
       <Footer />
     </>

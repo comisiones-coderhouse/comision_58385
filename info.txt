@@ -513,4 +513,194 @@ Response
 
     useRef(null) : {current:null}
 
-    useEffect(function,array?) : void
+    useEffect(function,array?) : void   = Sirve para ejecutar codigo con una determinada frecuencia (puede imitar los viejos ciclos de vida de un componente)
+
+
+    function App (){
+
+        //estados
+        
+        //Efectos
+
+        //metodos
+
+        //vista
+         return ()
+    }
+
+
+    mount : constructor, render , componentDidMount
+    update : shouldComponentUpdate , componentDidUpdate
+    unmount : componentWillUnmount
+
+    class App extends React.Component {
+        
+        componentDidMount(){
+            fetch()
+        }
+        
+        componentDidUpdate(){}
+
+        constructor(props){}
+
+        componentWillUnmount(){}
+
+        shouldComponentUpdate(){}
+
+        render(){}
+
+
+    }
+
+
+
+
+    useEffect(()=>{  })  : componentDidMount + componentDidUpdate
+
+    useEffect(()=>{  },[])  : componentDidMount
+
+    useEffect(()=>{  },[variable])  : componentDidMount + componentDidUpdate (solo si la variable cambio)
+
+    useEffect(()=>{  },[variable1,variable2])  : componentDidMount + componentDidUpdate (solo si la variable1 o la variable2 cambio)
+
+    useEffect(()=>{     ; return ()=>{}},[])   : componentDidMount + componentWillUnmount
+
+
+
+
+
+    function Container() {
+    
+    //Estados
+    const [state, setState] = useState([])
+    const [loading, setLoading] = useState(true)
+
+
+    //Efectos
+    useEffect(()=>{
+        const resultado = getProductos()
+        resultado.then(productos=>{
+            console.log("Termino de traerse productos")
+            setState(productos)
+            setLoading(false)
+        })
+
+        const intervalo = setInterval(()=>{
+            console.log("Hola")
+        },1000)
+
+        //es la ultima cosa que se ejecuta antes del desmontaje del componente
+        return () => {
+            clearInterval(intervalo)
+        }
+    },[])
+    
+    
+    //Vista
+    if(loading) return <p>cargando...</p>
+
+    return (
+        <Presentacional state={state} />
+    )
+}
+
+export default Container
+
+  HACER REDACCION DEL CLICLO DE VIDA DEL CONTAINER : 
+
+
+condicional ternario 
+
+    const condicion = true
+
+
+sentencia normal (no me quedo con ningun valor)
+    if(condicion){
+       return 1
+    } else {
+        return 2
+    }
+
+
+sentencia expresion (me quedo con un valor)
+    const r = condicion ? 1 : 2
+
+    const r = condicion && <p>1</p>
+
+    const r = condicion || <p>2</p>
+
+    const r = condicion 
+                ? condicion2 
+                    ? <p>1</p>
+                    : <p>3</p>
+                : <p>2</p> 
+
+    const r = condicion 
+                ? <p>1</p>
+                : condicion2
+                    ? <p>3</p>
+                    : <p>2</p>
+
+
+//Efectos
+    useEffect(()=>{
+
+        //aca van fetch que consigen datos inciales
+        //timers
+        //eventos de conexion
+        //eventos que no le correspondan al jsx del componente
+       
+        const resultado = getProductos()
+        resultado.then(productos=>{
+            console.log("Termino de traerse productos")
+            setState(productos)
+            setLoading(false)
+        })
+
+        /* const intervalo = setInterval(()=>{
+            console.log("Hola")
+        },1000) */
+
+        /* const handle = (e)=>{
+            console.log("click")
+            console.log(e.target)
+        }
+
+        document.addEventListener("click",handle) */
+
+        //es la ultima cosa que se ejecuta antes del desmontaje del componente
+        return () => {
+            /* clearInterval(intervalo) */
+            //document.removeEventListener("click",handle)
+        }
+    },[])
+
+
+
+const arr = [{id:1},{id:2},{id:3},{id:4},{id:5}]
+
+const arr_jsx = [<p>1</p>,<p>2</p>,<p>3</p>,<p>4</p>,<p>5</p>]
+
+
+
+for(let indice = 0; indice < arr.length; indice++){
+    const item = arr[i]
+    console.log(item)
+}
+
+arr.forEach((item,indice)=>{
+    
+})
+
+const r = arr.map((item,indice)=>{
+    return item
+})
+
+//[undefined,undefined,undefined,undefined,undefined]
+//[1,1,1,1,1]
+//[1,2,3,4,5]
+
+const r = arr.filter()
+const r = arr.reduce()
+const r = arr.find()
+const r = arr.sort()

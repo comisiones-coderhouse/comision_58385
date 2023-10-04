@@ -48,3 +48,20 @@ body,
 .form-input {
     @apply px-4 py-2 rounded-md shadow-md border border-gray-300 text-black;
 }
+
+.card-container {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8;
+}
+
+.card {
+
+    @apply p-2 shadow-md space-y-8 rounded-sm hover:scale-105 transition-all;
+
+    &__title {
+        @apply text-xl font-bold overflow-hidden whitespace-nowrap overflow-ellipsis;
+    }
+
+    &__image {
+        @apply h-[150px] object-contain w-full;
+    }
+}

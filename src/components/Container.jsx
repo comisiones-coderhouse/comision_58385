@@ -3,30 +3,27 @@ import Presentacional from "./Presentacional"
 import { getProductos } from "../utils"
 
 function Container() {
+    
     //Estados
-    const [state, setState] = useState([])
+    const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(true)
 
     //Efectos
     useEffect(()=>{
         const resultado = getProductos()
         resultado.then(productos=>{
             console.log("Termino de traerse productos")
-            setState(productos)
+            setProductos(productos)
+            setLoading(false)
         })
-
-        const intervalo = setInterval(()=>{
-            console.log("Hola")
-        },1000)
-
-        //es la ultima cosa que se ejecuta antes del desmontaje del componente
-        return () => {
-            clearInterval(intervalo)
-        }
     },[])
     
+    
     //Vista
+    if(loading) return <p>cargando...</p>
+
     return (
-        <Presentacional state={state} />
+        <Presentacional productos={productos} />
     )
 }
 
