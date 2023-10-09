@@ -704,3 +704,23 @@ const r = arr.filter()
 const r = arr.reduce()
 const r = arr.find()
 const r = arr.sort()
+
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+
+CLASE 9
+
+COmponentes de entrega
+
+App 
+    |_BrowserRouter
+        |_NavBar 
+            |_CartWidget
+        |_Routes
+            |_ItemListContainer (useEffect + useState [])
+                |_ItemList (props + map)
+                    |_Item (props)
+            |_ItemDetailContainer (useEffect + useState {})
+                |_ItemDetail

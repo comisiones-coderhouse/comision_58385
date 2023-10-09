@@ -1,28 +1,27 @@
-import { useState } from "react"
+import { Route, Routes } from "react-router-dom"
 import Contador from "./Contador"
 import Container from "./Container"
 import Formulario from "./Formulario"
+import TestPage from "../pages/TestPage"
 
 const Main = () => {
 
-    const [toggle, setToggle] = useState(false)
-
-    const handleToggle = () => {
-        setToggle(!toggle)
-    }
-
     return (
         <main className="main">
-            <button onClick={handleToggle}>{toggle ? "ir a  contador" : "ir a productos"}</button>
-            {toggle
-                ? <Container />
-                : (
-                    <>
-                        <Contador />
-                        <Formulario />
-                    </>
-                )
-            }
+            {/* <Container />
+            <Contador />
+            <Formulario /> */}
+
+            {/* if(url === "jewlery") { return <p>Jewlery</p> } */}
+            
+            <Routes>
+                <Route path="/" element={<p>Home</p>}/>
+                <Route path="/clothing" element={<p>Ropa</p>}/>
+                <Route path="/jewelery" element={<p>Joyas</p>}/>
+                <Route path="/cart" element={<p>Carrito</p>}/>
+                <Route path="/detalle/:id" element={<TestPage/>}/>
+                <Route path="*" element={<p>404 vuelva a intenta por favor</p>}/>
+            </Routes>
         </main>
     )
 

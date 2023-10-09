@@ -1,19 +1,16 @@
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Main from "./components/Main"
+import { BrowserRouter } from "react-router-dom"
 
 const App = () => {
 
   return (
-    <>
-      <Header nombre="Horacio">
-        <h1>Titulo</h1>
-        <h2>Subtitulo</h2>
-        <p>Lorem Ipsum</p>
-      </Header>
+    <BrowserRouter>
+      <Header nombre="Horacio" />
       <Main />
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }
 
