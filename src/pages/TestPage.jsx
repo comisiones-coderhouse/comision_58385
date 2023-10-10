@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom"
 import productos from "../productos.json"
 import { useEffect, useState } from "react"
+import { toast } from "sonner"
 
 function TestPage() {
 
@@ -11,9 +12,10 @@ function TestPage() {
     const params = useParams()
 
     useEffect(()=>{
-
+        toast.success("Cargando producto...")
         setTimeout(() => {
             setLoading(false)
+            toast.success("Producto cargado")
             productos.forEach(producto=>{
                 /* console.log("🚀 ~ setTimeout ~ params.id:", params.id)
                 console.log("🚀 ~ setTimeout ~ producto.id:", producto.id) */

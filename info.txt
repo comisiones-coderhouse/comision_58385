@@ -364,8 +364,9 @@ fetch("http://miserver.com")
 //Mock(imitacion)
 const promesa = new Promise((res,rej)=>{
     //aca esta la logica
-    //res([1,2,3,4,5])
-    rej("Hubo un error")
+    setTimeout(()=>{
+        res([1,2,3,4,5])
+    },2000)
 })
 
 console.log("Hola")
