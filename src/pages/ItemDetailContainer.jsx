@@ -2,8 +2,9 @@ import { useNavigate, useParams } from "react-router-dom"
 import productos from "../productos.json"
 import { useEffect, useState } from "react"
 import { toast } from "sonner"
+import ItemDetail from "../components/ItemDetail"
 
-function TestPage() {
+function ItemDetailContainer() {
 
     const [loading, setLoading] = useState(true)
     const [producto, setProducto] = useState({})
@@ -11,45 +12,40 @@ function TestPage() {
     const navigate = useNavigate()
     const params = useParams()
 
-    useEffect(()=>{
+    useEffect(() => {
         toast.success("Cargando producto...")
         setTimeout(() => {
             setLoading(false)
             toast.success("Producto cargado")
-            productos.forEach(producto=>{
-                /* console.log("🚀 ~ setTimeout ~ params.id:", params.id)
-                console.log("🚀 ~ setTimeout ~ producto.id:", producto.id) */
-                if(producto.id === parseInt(params.id)) {
-                    //console.log("🚀 ~ setTimeout ~ producto:", producto)
+            productos.forEach(producto => {
+                if (producto.id === parseInt(params.id)) {
                     setNotFound(false)
                     setProducto(producto)
-                } 
+                }
 
             })
         }, 2000);
 
-    },[])    
+    }, [])
 
 
-    useEffect(()=>{
-        if(notFound && !loading) {
+    useEffect(() => {
+        if (notFound && !loading) {
             navigate("/404")
         }
-    },[notFound,loading])
+    }, [notFound, loading])
 
 
-    if(loading) {
+    if (loading) {
         return <p>Cargando...</p>
     }
 
-    /* if(notFound) {
-        return <p>Producto no encontrado</p>
-    } */
-
     return (
         <div>
-            <h2>{producto.title}</h2>
+            <h1 className="text-xl font-bold">Detalle del producto</h1>
+            <hr />
+            <ItemDetail producto={producto} />
         </div>
     )
 }
-export default TestPage
+export default ItemDetailContainer

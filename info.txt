@@ -720,8 +720,55 @@ App
         |_NavBar 
             |_CartWidget
         |_Routes
+            (path="/")
             |_ItemListContainer (useEffect + useState [])
                 |_ItemList (props + map)
                     |_Item (props)
+
+            (path="/category/:id")
+            |_ItemListContainer (useEffect + useState [])
+                |_ItemList (props + map)
+                    |_Item (props)
+
+            (path="/item/:id")
             |_ItemDetailContainer (useEffect + useState {})
-                |_ItemDetail
+                |_ItemDetail (useState + props)
+                    |_ItemCount (useState + props)
+
+            (path="/cart")
+            |_Cart (?)
+
+
+========================================================================================
+
+CLASE 11
+
+
+- State Uplifting : Es el camino inverso de hacer props, osea es pasarle datos de un componente hijo a un componente padre
+
+    Implementacion : 
+        - hacer una funcion(handle) en el componente padre
+        - pasarle esa funcion(handle) al componente hijo (props)
+        - recibir esa funcion(handle) en el componente hijo (props)
+        - ejecutar esa funcion(handle) en el componente hijo (props | usualmente en un evento) 
+        - pasarle datos a esa funcion(handle) en el componente hijo (los datos que querias subir)
+        - recibir esos datos en el componente padre (los parentesis de la funcion(handle) que le pasaste al componente hijo)
+
+
+
+
+- Context API : Es una forma de hacer State Uplifting ("global") pero sin pasarle props a los componentes intermedios
+
+    contexto : es un espacio de alamacenamiento que se vuelve "global" dependiendo donde se ubique su Provider
+
+    Provider : es un componente que se obtiene creando un contexto
+
+Implementacion : 
+    1) crear un contexto (createContext)
+    2) le saco el Provider de adentro al contexto del paso 1 (Context.Provider)
+    3) Ubicar el Provider en algun lugar de la app, de esta manera los demas componentes van a poder acceder a ese contexto
+    4) Configurar el prop value del Provider con los datos que queremos compartir
+    5) vas a cualquier otro componente y haces lo siguiente : 
+    5.1)  importas el contexto 
+    5.2)  importas el hook useContext
+    5.3)    metes uno dentro del otro

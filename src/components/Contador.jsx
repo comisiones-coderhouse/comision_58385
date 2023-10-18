@@ -1,36 +1,10 @@
 import { useState } from "react"
 
+//Hijo
+function Contador(props) {
 
-/* JS vanilla */
-
-/* 
-
-let contador = 0
-
-const handleClick = () => {
-    contador = contador + 1
-    const p = document.querySelector("p")
-    p.textContent = `Contador Actual : ${contador}`
-}
-
-const btn = document.querySelector(".btn")
-btn.addEventListener("click", handleClick)
-btn.addEventListener("click", ()=>{}) */
-
-/* End JS vanilla */
-
-
-
-
-function Contador(/* {inicial,stock} */props) {
-
-    /* const {inicial,stock} = props */
-
-    //Estados
     const [contador,setContador] = useState(props.inicial)
     
-
-    //Acciones(metodos)
     const handleSumar = () => {
         setContador(contador + 1)
     }
@@ -45,15 +19,18 @@ function Contador(/* {inicial,stock} */props) {
         setContador(1)
     }
 
+    const handleConfirmar = () => {
+        props.handle(contador)
+    }
 
 
-    //Render(vista)
     return (
         <div>
             <p>Contador Actual : {contador}</p>
             <button onClick={handleSumar} className="btn">sumar</button>
             <button onClick={handleRestar} className="btn">restar</button>
             <button onClick={handleResetear} className="btn">resetear</button>
+            <button onClick={handleConfirmar} className="btn">confirmar cantidad</button>
         </div>
     )
 }
