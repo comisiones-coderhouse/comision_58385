@@ -42,8 +42,7 @@ function ItemDetailContainer() {
 
     return (
         <div>
-            <h1 className="text-xl font-bold">Detalle del producto</h1>
-            <hr />
+            <h2 className="font-bold text-2xl mb-8">Home Page</h2>
             <ItemDetail producto={producto} />
         </div>
     )

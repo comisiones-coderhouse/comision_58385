@@ -4,11 +4,9 @@ import { getProductos } from "../utils"
 
 function Container() {
     
-    //Estados
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
 
-    //Efectos
     useEffect(()=>{
         const resultado = getProductos()
         resultado.then(productos=>{
@@ -18,8 +16,6 @@ function Container() {
         })
     },[])
     
-    
-    //Vista
     if(loading) return <p>cargando...</p>
 
     return (

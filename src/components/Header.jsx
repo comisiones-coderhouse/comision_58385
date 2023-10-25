@@ -1,28 +1,22 @@
-import { Link , NavLink , useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { contexto } from "../providers/CustomProvider"
+import { Link, NavLink } from "react-router-dom"
 
-const Header = (props) => {
+const Header = () => {
 
-    const navigate = useNavigate()
+    const valorDelContexto = useContext(contexto)
 
     return (
         <header className="header">
-
             <Link to="/">
-                <h1>{props.nombre}</h1>
+                <h1 className="font-extrabold text-xl">La gran estafa</h1>
             </Link>
-
             <nav className="navbar">
-
-                {/* <a href="/productos">link</a> */}
                 <NavLink to="/clothing">ropa</NavLink>
-
-                {/* <a href="/carrito">link</a> */}
                 <NavLink to="/jewelery">jewelery</NavLink>
-
-                {/* <a href="/carrito">link</a> */}
                 <NavLink to="/cart">carrito</NavLink>
-
-                <button onClick={() => navigate("/cart")}>carrito</button>
+                <button className="material-icons">shopping_cart</button>
+                {valorDelContexto.cantidadTotal}
             </nav>
         </header>
     )

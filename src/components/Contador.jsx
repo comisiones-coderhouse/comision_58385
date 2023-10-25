@@ -1,6 +1,5 @@
 import { useState } from "react"
 
-//Hijo
 function Contador(props) {
 
     const [contador,setContador] = useState(props.inicial)

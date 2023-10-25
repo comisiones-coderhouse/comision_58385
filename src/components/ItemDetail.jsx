@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { contexto } from "../App"
 import Contador from "./Contador"
+import { contexto } from "../providers/CustomProvider"
 
 //Padre
 function ItemDetail(props) {
@@ -8,11 +8,12 @@ function ItemDetail(props) {
     
     const valorDelContexto = useContext(contexto)
 
-    console.log(valorDelContexto)
-
     const handle = (cantidadSeleccionada) => {
-        console.log("Soy la handle de item detail")
         console.log("cantidad seleccionada", cantidadSeleccionada)
+    }
+
+    const handleClick = () => {
+        valorDelContexto.incrementTotal(5)
     }
 
     return (
@@ -21,10 +22,8 @@ function ItemDetail(props) {
             <img className="max-w-[200px]" src={props.producto.image} alt={props.producto.title} />
             <p>{props.producto.description}</p>
             <p>Precio : ${props.producto.price}</p>
-            {/* el contador deberia desaparecer cuando me llega la cantidad confirmada al detalle */}
             <Contador inicial={1} handle={handle} />
-            {/* El boton de agregar solo aparece  cuando me llega una cantidad*/}
-            <button className="btn">agregar a carrito</button>
+            <button className="btn" onClick={handleClick}>agregar a carrito</button>
         </div>
     )
 }

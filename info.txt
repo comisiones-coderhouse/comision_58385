@@ -772,3 +772,60 @@ Implementacion :
     5.1)  importas el contexto 
     5.2)  importas el hook useContext
     5.3)    metes uno dentro del otro
+
+
+
+========================================================================================
+
+
+CLASE 12
+
+Conceptos clave hasta ahora : 
+
+1) Componentes : crearlos, hacer composicion 
+2) Props : pasarle datos a los componentes (parametros)
+3) Hooks : como concepto
+4) Estados : cuando se actualizan, que pasa cuando se actualiza , como se modifica un estado (de manera correcta)
+5) Efectos : Que se hace dentro de los efectos, relacion efecto/estado
+6) Patron Container : Que haya un componente con logica de estado/efectos y que su/s hijos sean componentes presentacionales (osea solo que tengan JSX/props)
+7) Rutas : Que Router elegir, como configurar las rutas, rutas dinamicas y links (moverme a traves de las rutas)
+8) State Uplifting : La capacidad de mandarle informacion de un componente hjijo a un componente padre (lo opuesto a props)
+9) Context API : La capacidad de crear un contexto y compartirlo a traves de un Provider (lo opuesto a props)
+10) Patron Provider : 
+
+
+Patron Provider : Encapsula la implementacion de un Contexto/Provider
+
+
+========================================================================================
+
+CLASE 13
+
+
+
+
+Implentacion de Firebase/Firestore (WEB): 
+
+1) ir a https://firebase.google.com/
+2) login y crear un nuevo proyecto
+3) ir a la consola del proyecto
+4) ir a la seccion de Firestore o Todos los productos (depende de la version de firebase)
+5) crear la base de datos en modo prueba
+6) crear una coleccion llamada "productos" con un documento dentro (puede ser cualquier producto)
+8) ir a project settings y activar una app que les da keys de firebase
+
+
+Instalacion de Firebase/Firestore (CODIGO) :
+
+1) npm install firebase
+2) crear un archivo de configuracion  en la carpeta src y se guardan los keys de firebase
+3) exportar e importar app 
+4) hacer consultas
+
+
+COMO HACER CONSULTAS : 
+
+1) importar la variable app que quedo del paso 3 de la instalacion
+2) importar la funcion getFirestore de firebase/firestore
+3) ejecutar la funcion getFirestore con la variable app del paso 1, esto nos va a da una referencia a la base de datos
+4) 
