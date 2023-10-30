@@ -12,7 +12,7 @@ function Formulario() {
 
     return (
         <div>
-            <input ref={inputRef} type="text" className="form-input" />
+            <input ref={inputRef} type="text" className="form-input"/>
             <button onClick={handleClick} className="btn">Enviar</button>
         </div>
     )

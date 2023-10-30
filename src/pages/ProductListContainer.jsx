@@ -1,68 +1,54 @@
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
-import { ProductList } from "../components/ProductList"
 import { toast } from "sonner"
-
+import { ProductList } from "../components/ProductList"
 import { app } from "../firebaseConfig"
-import { getFirestore, collection, getDocs } from "firebase/firestore"
-
-
-
-//getDocs , getDoc , addDoc , doc , collection , query , where
-
-//Extraer la referencia de la base de datos
-const db = getFirestore(app)
-
-//Extraer la referencia de la coleccion de productos
-const productosCollection = collection(db, "productos")
-
-//Hacer la consulta (analogo a un fetch())
-const consulta = getDocs(productosCollection)
-
-consulta.then((resultado)=>{
-  
-  //console.log(resultado) todo lo que me vino de la consultao
-  //console.log(resultado.docs) un array con los documentos en "referencia" de la consulta
-  //habria que recorrer el array de docs y por cada doc , extraerle la informacion
-  //habria que juntar data() con .id para que quede un objeto producto con todo junto
-  
-  console.log(resultado.docs[0])
-  console.log(resultado.docs[0].id)
-  console.log(resultado.docs[0].data())
-
-})
-
-consulta.catch((err)=>{
-  console.log({err})
-})
-
-
-
-
 
 
 function ProductListContainer() {
 
   const [productos, setProductos] = useState([])
 
+  
   useEffect(() => {
 
-    //const promesa = new Promise((r)=>{r([])})
-    //const promesa = db.getProductos()
-    const promesa = fetch("https://fakestoreapi.com/products")
+    toast("Cargando productos...")
+    
+    const db = getFirestore(app)
+    const productosCollection = collection(db, "productos")
 
-    promesa
-      .then((res) => { return res.json() })
-      .then((res) => {
-        setProductos(res)
-      })
-      .catch((err) => {
-        //toast.error("")
+    //const filtro = query(productosCollection,where("category","==","electronics"))
+    //const filtro = query(productosCollection,where("category","==","clothing"))
+    const filtro = query(productosCollection,
+        where("category","==","clothing"),
+        where("price",">",10))
+
+    const consulta = getDocs(filtro)
+
+
+    consulta
+      .then((resultado) => {
+
+        const productos = resultado.docs.map(doc => {
+          const id = doc.id
+          const data = doc.data()
+          data.id = id
+          return data
+        })
+        
+        setProductos(productos)
+        toast.dismiss()
+
+      }).catch((err) => {
+        console.log(err)
+        toast.error("Ocurrio un error al cargar los productos")
       })
 
     return () => {
       console.log("Se desmonto el componente : componentWillUnmount")
     }
   }, [])
+
 
   return (
     <div>

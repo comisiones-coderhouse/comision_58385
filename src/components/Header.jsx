@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { contexto } from "../providers/CustomProvider"
 import { Link, NavLink } from "react-router-dom"
+import { contexto } from "../providers/CustomProvider"
 
 const Header = () => {
 
@@ -13,7 +13,7 @@ const Header = () => {
             </Link>
             <nav className="navbar">
                 <NavLink to="/clothing">ropa</NavLink>
-                <NavLink to="/jewelery">jewelery</NavLink>
+                <NavLink to="/electronics">electronics</NavLink>
                 <NavLink to="/cart">carrito</NavLink>
                 <button className="material-icons">shopping_cart</button>
                 {valorDelContexto.cantidadTotal}

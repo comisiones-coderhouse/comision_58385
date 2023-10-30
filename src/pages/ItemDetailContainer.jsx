@@ -1,8 +1,10 @@
-import { useNavigate, useParams } from "react-router-dom"
-import productos from "../productos.json"
+import { collection, doc, getDoc, getFirestore } from "firebase/firestore"
 import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "sonner"
 import ItemDetail from "../components/ItemDetail"
+import { app } from "../firebaseConfig"
+
 
 function ItemDetailContainer() {
 
@@ -14,17 +16,33 @@ function ItemDetailContainer() {
 
     useEffect(() => {
         toast.success("Cargando producto...")
-        setTimeout(() => {
-            setLoading(false)
-            toast.success("Producto cargado")
-            productos.forEach(producto => {
-                if (producto.id === parseInt(params.id)) {
-                    setNotFound(false)
-                    setProducto(producto)
-                }
 
+        const db = getFirestore(app)
+        const productosCollection = collection(db, "productos")
+
+        //const docRef = doc(productosCollection, "6r5ScQcj0nV9CqGIbrYE")
+        const docRef = doc(productosCollection, "RaLqRGuXRsqvjglwl1Bb")
+        const consulta = getDoc(docRef)
+
+
+        consulta
+            .then((resultado)=>{
+                //console.log(resultado)
+                //console.log(resultado.id)
+                //console.log(resultado.data())
+                const producto = resultado.data()
+                producto.id = resultado.id
+                setProducto(producto)
+                setNotFound(false)
             })
-        }, 2000);
+            .catch((err) => {
+                console.log(err)
+                toast.error("Ocurrio un error al cargar el producto")
+            })
+            .finally(()=>{
+                setLoading(false)
+                toast.dismiss()
+            })
 
     }, [])
 

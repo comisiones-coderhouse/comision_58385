@@ -829,3 +829,108 @@ COMO HACER CONSULTAS :
 2) importar la funcion getFirestore de firebase/firestore
 3) ejecutar la funcion getFirestore con la variable app del paso 1, esto nos va a da una referencia a la base de datos
 4) 
+
+
+
+
+
+
+========================================================================================
+
+CLASE 14
+
+/Extraer la referencia de la base de datos
+const db = getFirestore(app)
+
+//Extraer la referencia de la coleccion de productos
+const productosCollection = collection(db, "productos")
+
+//Hacer la consulta (analogo a un fetch())
+const consulta = getDocs(productosCollection)
+
+consulta.then((resultado) => {
+  //console.log(resultado) todo lo que me vino de la consultao
+  //console.log(resultado.docs) un array con los documentos en "referencia" de la consulta
+  //habria que recorrer el array de docs y por cada doc , extraerle la informacion
+  //habria que juntar data() con .id para que quede un objeto producto con todo junto
+
+  //console.log(resultado.empty)
+  //console.log(resultado.size)
+  /* console.log(resultado.docs)
+  console.log(resultado.docs[0])
+  console.log(resultado.docs[0].id)
+  console.log(resultado.docs[0].data()) */
+
+  /* 
+  const productos = []
+
+  resultado.docs.forEach(doc=>{
+    const id = doc.id
+    const data = doc.data()
+    //const producto = {id, ...data}
+    data.id = id
+    productos.push(data)
+  }) 
+  */
+
+  const productos = resultado.docs.map(doc => {
+    const id = doc.id
+    const data = doc.data()
+    data.id = id
+    return data
+  })
+
+
+  console.log(productos)
+
+
+
+})
+
+consulta.catch((err) => {
+  console.log({ err })
+})
+
+
+
+
+
+
+
+TEMPLATE PARA PEDIR TODO : 
+
+const db = getFirestore(app)
+    const productosCollection = collection(db, "productos")
+    const consulta = getDocs(productosCollection)
+
+    consulta
+      .then((resultado) => {
+        const productos = resultado.docs.map(doc => {
+          const id = doc.id
+          const data = doc.data()
+          data.id = id
+          return data
+        })
+        
+        setProductos(productos)
+        toast.dismiss()
+
+      }).catch((err) => {
+        toast.error("Ocurrio un error al cargar los productos")
+      })
+
+
+
+FILTROS PARA CONSULTA CON GETDOCS : 
+
+//const filtro = query(productosCollection,where("category","==","electronics"))
+    //const filtro = query(productosCollection,where("category","==","clothing"))
+    const filtro = query(productosCollection,
+        where("category","==","clothing"),
+        where("price",">",10))
+
+
+
+https://www.npmjs.com/package/validator
+
+https://react-hook-form.com/
