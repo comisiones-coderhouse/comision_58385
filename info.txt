@@ -946,5 +946,51 @@ CLASE FINAL
 - que es un build
 - que es un deploy
 - que son las variables de entorno
-- README
-- general entrega final 
+- README (markdown)
+
+    - Descripcion general del proyecto
+    - Uso e instalacion
+    - Dependencias / Tech usada (herramientas que usaron durante el desarrollo)
+    - ???
+
+- general entrega final : 
+
+    - codigo fuente
+    - readme.md
+    - GIF/VIDEO/IMAGENES EN EL README/DEPLOY
+
+
+
+
+Sugerencias generales : 
+
+- borrar console.logs
+- borrar comentarios
+- checkear fragmentos innecesarios
+- checkear que no haya errores en la consola *
+- checkear variables/props/imports sin usar
+- checkear repeticion de codigo
+
+
+App 
+    |_BrowserRouter
+        |_NavBar 
+            |_CartWidget
+        |_Routes
+            (path="/")
+            |_ItemListContainer (useEffect + useState [])
+                |_ItemList (props + map)
+                    |_Item (props)
+
+            (path="/category/:id")
+            |_ItemListContainer (useEffect + useState [])
+                |_ItemList (props + map)
+                    |_Item (props)
+
+            (path="/item/:id")
+            |_ItemDetailContainer (useEffect + useState {})
+                |_ItemDetail (useState + props)
+                    |_ItemCount (useState + props)
+
+            (path="/cart")
+            |_Cart (?)
