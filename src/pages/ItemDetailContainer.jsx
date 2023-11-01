@@ -15,18 +15,19 @@ function ItemDetailContainer() {
     const params = useParams()
 
     useEffect(() => {
-        toast.success("Cargando producto...")
-
+        
         const db = getFirestore(app)
         const productosCollection = collection(db, "productos")
-
+        
         //const docRef = doc(productosCollection, "6r5ScQcj0nV9CqGIbrYE")
         const docRef = doc(productosCollection, "RaLqRGuXRsqvjglwl1Bb")
         const consulta = getDoc(docRef)
-
-
+        
+        
+        toast.success("Cargando producto...")
+        
         consulta
-            .then((resultado)=>{
+        .then((resultado)=>{
                 //console.log(resultado)
                 //console.log(resultado.id)
                 //console.log(resultado.data())

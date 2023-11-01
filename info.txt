@@ -934,3 +934,17 @@ FILTROS PARA CONSULTA CON GETDOCS :
 https://www.npmjs.com/package/validator
 
 https://react-hook-form.com/
+
+
+
+========================================================================================
+
+
+CLASE FINAL
+
+
+- que es un build
+- que es un deploy
+- que son las variables de entorno
+- README
+- general entrega final 

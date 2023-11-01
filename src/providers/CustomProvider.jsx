@@ -17,6 +17,19 @@ const CustomProvider = (props) => {
         setCantidadTotal(cantidadTotal + nuevaCant)
     }
 
+    const handleAddProduct = (product,cant) => {
+        //1 verificar la long del carrito
+        //2 si no tiene nada, le agrego al final
+        //3 si tiene algo, lo recorro hasta encontrar el producto y le sumo la cantidad
+
+        //const copia = ?
+
+        //se pueden copiar arrays con .map / .slice / ...etc
+        
+        //copia.push() - copia.pop() - copia.shift() - copia.unshift() - copia.splice()
+        //setCarrito(copia)
+    }
+
     const valorDelContexto = {
         dark: darkMode,
         toggleDark : handleToggleDark,

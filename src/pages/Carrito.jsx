@@ -4,14 +4,9 @@ import { toast } from "sonner"
 import { app } from "../firebaseConfig"
 import { contexto } from "../providers/CustomProvider"
 
-//app -> db -> collection -> {getDocs/getDoc/addDoc/updateDoc/deleteDoc} -> .then()
-
-
-
 const Carrito = () => {
 
     const valorDelContexto = useContext(contexto)
-    //let id;
 
     const handleClick = () => {
         valorDelContexto.toggleDark()

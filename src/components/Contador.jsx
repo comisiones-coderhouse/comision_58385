@@ -2,7 +2,7 @@ import { useState } from "react"
 
 function Contador(props) {
 
-    const [contador,setContador] = useState(props.inicial)
+    const [contador,setContador] = useState(props.initial)
     
     const handleSumar = () => {
         setContador(contador + 1)
@@ -19,7 +19,7 @@ function Contador(props) {
     }
 
     const handleConfirmar = () => {
-        props.handle(contador)
+        props.onAdd(contador)
     }
 
 
